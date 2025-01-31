@@ -12,7 +12,7 @@ definePageMeta({
     />
     <Card class="w-full max-w-md">
       <CardHeader>
-        <CardTitle class="text-3xl font-bold text-center">5Stack</CardTitle>
+        <CardTitle class="text-3xl font-bold text-center">PlayMix</CardTitle>
         <CardDescription class="text-center">
           {{
             $t(
