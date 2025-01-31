@@ -1,6 +1,6 @@
 FROM node:22-alpine as deps
 
-WORKDIR /opt/5stack
+WORKDIR /opt/m1000rr
 
 COPY package.json yarn.lock ./
 
@@ -12,18 +12,18 @@ RUN yarn install \
 
 FROM node:22-alpine as builder
 
-WORKDIR /opt/5stack
+WORKDIR /opt/m1000rr
 
-COPY --from=deps /opt/5stack/node_modules ./node_modules
+COPY --from=deps /opt/m1000rr/node_modules ./node_modules
 COPY . .
 
 RUN yarn build
 
 FROM node:22-alpine
 
-WORKDIR /opt/5stack
+WORKDIR /opt/m1000rr
 
-COPY --from=builder /opt/5stack/.output  .
+COPY --from=builder /opt/m1000rr/.output  .
 
 ENV HOST 0.0.0.0
 EXPOSE 3000
